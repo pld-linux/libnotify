@@ -8,8 +8,12 @@ Group:		Applications/System
 Source0:	http://www.galago-project.org/files/releases/source/libnotify/%{name}-%{version}.tar.gz
 # Source0-md5:	cbf2ff0a8a62eb1f310367a0a174a273
 URL:		http://www.galago-project.org/
-BuildRequires:	dbus-devel >= 0.30
-Requires:	dbus >= 0.30
+BuildRequires:	dbus-glib-devel >= 0.30
+BuildRequires:	glib2-devel >= 2.2.2
+#gtk+2-devel >= 2.0.0 (only checked for, not used)
+BuildRequires:	pkgconfig
+BuildRequires:	popt-devel
+Requires:	dbus-glib >= 0.30
 BuildRoot:	%{_tmppath}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -29,6 +33,7 @@ Summary:	libnotify header files
 Summary(pl):	Pliki nag³ówkowe biblioteki libnotify
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	dbus-glib-devel >= 0.30
 
 %description devel
 Header files for libnotify-based programs development.
