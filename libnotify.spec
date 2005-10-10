@@ -3,14 +3,18 @@ Summary(pl):	Biblioteka powiadomieñ dla pulpitu
 Name:		libnotify
 Version:	0.2.2
 Release:	0.1
-License:	GPL
+License:	LGPL v2.1+ (library), GPL v2+ (tools)
 Group:		Applications/System
 Source0:	http://www.galago-project.org/files/releases/source/libnotify/%{name}-%{version}.tar.gz
 # Source0-md5:	cbf2ff0a8a62eb1f310367a0a174a273
+Patch0:		%{name}-link.patch
 URL:		http://www.galago-project.org/
+BuildRequires:	autoconf >= 2.50
+BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.30
 BuildRequires:	glib2-devel >= 2.2.2
-#gtk+2-devel >= 2.0.0 (only checked for, not used)
+#gtk+2-devel >= 2.0.0 (only for tests which are not packaged)
+BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel
 Requires:	dbus-glib >= 0.30
@@ -31,6 +35,7 @@ jakiej¶ formy informacji bez wchodzenia u¿ytkownikowi w drogê.
 %package devel
 Summary:	libnotify header files
 Summary(pl):	Pliki nag³ówkowe biblioteki libnotify
+License:	LGPL v2.1+
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	dbus-glib-devel >= 0.30
@@ -44,6 +49,7 @@ Pliki nag³ówkowe do tworzenia programów opartych o libnotify.
 %package static
 Summary:	Static libnotify library
 Summary(pl):	Statyczna biblioteka libnotify
+License:	LGPL v2.1+
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
@@ -55,8 +61,14 @@ Statyczna biblioteka libnotify.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
+%{__libtoolize}
+%{__aclocal}
+%{__autoconf}
+%{__autoheader}
+%{__automake}
 %configure
 %{__make}
 
@@ -74,7 +86,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog COPYING README
+%doc AUTHORS ChangeLog NEWS
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 
