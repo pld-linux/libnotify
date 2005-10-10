@@ -19,7 +19,7 @@ be used to inform the user about an event or display some form of
 information without getting in the user's way.
 
 %description -l pl
-Biblioetka wysy³aj±ca powiadomienia dla pulpitu do demona powiadomieñ
+Biblioteka wysy³aj±ca powiadomienia dla pulpitu do demona powiadomieñ
 zgodnie ze specyfikacj± Desktop Notifications. Powiadomienia te mog±
 byæ u¿ywane do informowania u¿ytkownika o zdarzeniu lub wy¶wietlania
 jakiej¶ formy informacji bez wchodzenia u¿ytkownikowi w drogê.
