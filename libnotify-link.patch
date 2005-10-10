@@ -1,0 +1,11 @@
+--- libnotify-0.2.2/configure.ac.orig	2005-08-10 10:59:21.000000000 +0200
++++ libnotify-0.2.2/configure.ac	2005-10-10 19:59:55.264344304 +0200
+@@ -87,7 +87,7 @@
+ 
+ AM_PROG_LIBTOOL
+ 
+-AC_CHECK_LIB([popt], [poptGetArg], , AC_MSG_ERROR([Popt is required]))
++AC_CHECK_LIB([popt], [poptGetArg], [:], AC_MSG_ERROR([Popt is required]))
+ 
+ pkg_modules="glib-2.0 >= 2.2.2, dbus-1 >= 0.23, dbus-glib-1 >= 0.23"
+ PKG_CHECK_MODULES(PACKAGE, [$pkg_modules])
