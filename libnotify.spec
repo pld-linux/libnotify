@@ -1,23 +1,23 @@
 Summary:	Desktop notifications library
 Summary(pl):	Biblioteka powiadomieñ dla pulpitu
 Name:		libnotify
-Version:	0.2.2
+Version:	0.3.2
 Release:	1
 License:	LGPL v2.1+ (library), GPL v2+ (tools)
 Group:		Applications/System
 Source0:	http://www.galago-project.org/files/releases/source/libnotify/%{name}-%{version}.tar.gz
-# Source0-md5:	cbf2ff0a8a62eb1f310367a0a174a273
+# Source0-md5:	12bcb4949e4be783a2db388e9155afac
 Patch0:		%{name}-link.patch
 URL:		http://www.galago-project.org/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
-BuildRequires:	dbus-glib-devel >= 0.30
+BuildRequires:	dbus-glib-devel >= 0.36
 BuildRequires:	glib2-devel >= 2.2.2
 #gtk+2-devel >= 2.0.0 (only for tests which are not packaged)
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel
-Requires:	dbus-glib >= 0.30
+Requires:	dbus-glib >= 0.36
 BuildRoot:	%{_tmppath}/%{name}-%{version}-root-%(id -u -n)
 
 %description
