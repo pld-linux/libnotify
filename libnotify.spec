@@ -12,10 +12,9 @@ BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.36
 BuildRequires:	glib2-devel >= 2.2.2
-#gtk+2-devel >= 2.0.0 (only for tests which are not packaged)
+#gtk+2-devel >= 1:2.2.2 (only for tests which are not packaged)
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
-BuildRequires:	popt-devel
 Requires:	dbus-glib >= 0.36
 BuildRoot:	%{_tmppath}/%{name}-%{version}-root-%(id -u -n)
 
