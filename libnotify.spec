@@ -12,7 +12,7 @@ BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.36
 BuildRequires:	glib2-devel >= 2.2.2
-#gtk+2-devel >= 1:2.2.2 (only for tests which are not packaged)
+BuildRequires:	gtk+2-devel >= 1:2.2.2
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 Requires:	dbus-glib >= 0.36
@@ -37,6 +37,8 @@ License:	LGPL v2.1+
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	dbus-glib-devel >= 0.36
+Requires:	glib2-devel >= 2.2.2
+Requires:	gtk+2-devel >= 1:2.2.2
 
 %description devel
 Header files for libnotify-based programs development.
