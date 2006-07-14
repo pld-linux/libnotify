@@ -12,8 +12,8 @@ URL:		http://www.galago-project.org/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.62
-BuildRequires:	glib2-devel >= 1:2.11.3
-BuildRequires:	gtk+2-devel >= 2:2.9.3
+BuildRequires:	glib2-devel >= 1:2.12.0
+BuildRequires:	gtk+2-devel >= 2:2.10.0
 BuildRequires:	gtk-doc >= 1.6
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
@@ -39,8 +39,8 @@ License:	LGPL v2.1+
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	dbus-glib-devel >= 0.62
-Requires:	glib2-devel >= 1:2.11.3
-Requires:	gtk+2-devel >= 2:2.9.3
+Requires:	glib2-devel >= 1:2.12.0
+Requires:	gtk+2-devel >= 2:2.10.0
 
 %description devel
 Header files for libnotify-based programs development.
@@ -71,6 +71,7 @@ Statyczna biblioteka libnotify.
 %{__autoconf}
 %{__autoheader}
 %{__automake}
+LDFLAGS="%{rpmldflags} -Wl,--as-needed"
 %configure \
 	--enable-gtk-doc \
 	--with-html-dir=%{_gtkdocdir}
