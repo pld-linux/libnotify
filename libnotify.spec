@@ -2,7 +2,7 @@ Summary:	Desktop notifications library
 Summary(pl):	Biblioteka powiadomieñ dla pulpitu
 Name:		libnotify
 Version:	0.4.2
-Release:	3
+Release:	4
 License:	LGPL v2.1+ (library), GPL v2+ (tools)
 Group:		Libraries
 Source0:	http://www.galago-project.org/files/releases/source/libnotify/%{name}-%{version}.tar.gz
@@ -11,13 +11,13 @@ Patch0:		%{name}-send-uchar-array-instead-of-char-array.patch
 URL:		http://www.galago-project.org/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
-BuildRequires:	dbus-glib-devel >= 0.62
-BuildRequires:	glib2-devel >= 1:2.12.0
-BuildRequires:	gtk+2-devel >= 2:2.10.0
-BuildRequires:	gtk-doc >= 1.6
+BuildRequires:	dbus-glib-devel >= 0.71
+BuildRequires:	glib2-devel >= 1:2.12.1
+BuildRequires:	gtk+2-devel >= 2:2.10.1
+BuildRequires:	gtk-doc >= 1.7
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
-Requires:	dbus-glib >= 0.62
+Requires:	dbus-glib >= 0.71
 BuildRoot:	%{_tmppath}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -38,9 +38,9 @@ Summary(pl):	Pliki nag³ówkowe biblioteki libnotify
 License:	LGPL v2.1+
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	dbus-glib-devel >= 0.62
-Requires:	glib2-devel >= 1:2.12.0
-Requires:	gtk+2-devel >= 2:2.10.0
+Requires:	dbus-glib-devel >= 0.71
+Requires:	glib2-devel >= 1:2.12.1
+Requires:	gtk+2-devel >= 2:2.10.1
 
 %description devel
 Header files for libnotify-based programs development.
@@ -71,7 +71,6 @@ Statyczna biblioteka libnotify.
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-LDFLAGS="%{rpmldflags} -Wl,--as-needed"
 %configure \
 	--enable-gtk-doc \
 	--with-html-dir=%{_gtkdocdir}
