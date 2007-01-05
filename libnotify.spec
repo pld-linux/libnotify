@@ -2,7 +2,7 @@ Summary:	Desktop notifications library
 Summary(pl):	Biblioteka powiadomieñ dla pulpitu
 Name:		libnotify
 Version:	0.4.3
-Release:	1
+Release:	2
 License:	LGPL v2.1+ (library), GPL v2+ (tools)
 Group:		Libraries
 Source0:	http://www.galago-project.org/files/releases/source/libnotify/%{name}-%{version}.tar.bz2
@@ -30,6 +30,18 @@ Biblioteka wysy³aj±ca powiadomienia dla pulpitu do demona powiadomieñ
 zgodnie ze specyfikacj± Desktop Notifications. Powiadomienia te mog±
 byæ u¿ywane do informowania u¿ytkownika o zdarzeniu lub wy¶wietlania
 jakiej¶ formy informacji bez wchodzenia u¿ytkownikowi w drogê.
+
+%package apidocs
+Summary:	libnotify API documentation
+Summary(pl):	Dokumentacja API biblioteki libnotify
+Group:		Documentation
+Requires:	gtk-doc-common
+
+%description apidocs
+libnotify API documentation.
+
+%description apidocs -l pl
+Dokumentacja API biblioteki libnotify.
 
 %package devel
 Summary:	libnotify header files
@@ -92,13 +104,16 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 
+%files apidocs
+%defattr(644,root,root,755)
+%{_gtkdocdir}/%{name}
+
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
 %{_pkgconfigdir}/*
 %{_includedir}/*
-%{_gtkdocdir}/%{name}
 
 %files static
 %defattr(644,root,root,755)
