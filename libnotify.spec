@@ -1,5 +1,5 @@
 Summary:	Desktop notifications library
-Summary(pl):	Biblioteka powiadomieÒ dla pulpitu
+Summary(pl.UTF-8):   Biblioteka powiadomie≈Ñ dla pulpitu
 Name:		libnotify
 Version:	0.4.3
 Release:	2
@@ -25,27 +25,27 @@ as defined in the Desktop Notifications spec. These notifications can
 be used to inform the user about an event or display some form of
 information without getting in the user's way.
 
-%description -l pl
-Biblioteka wysy≥aj±ca powiadomienia dla pulpitu do demona powiadomieÒ
-zgodnie ze specyfikacj± Desktop Notifications. Powiadomienia te mog±
-byÊ uøywane do informowania uøytkownika o zdarzeniu lub wy∂wietlania
-jakiej∂ formy informacji bez wchodzenia uøytkownikowi w drogÍ.
+%description -l pl.UTF-8
+Biblioteka wysy≈ÇajƒÖca powiadomienia dla pulpitu do demona powiadomie≈Ñ
+zgodnie ze specyfikacjƒÖ Desktop Notifications. Powiadomienia te mogƒÖ
+byƒá u≈ºywane do informowania u≈ºytkownika o zdarzeniu lub wy≈õwietlania
+jakiej≈õ formy informacji bez wchodzenia u≈ºytkownikowi w drogƒô.
 
 %package apidocs
 Summary:	libnotify API documentation
-Summary(pl):	Dokumentacja API biblioteki libnotify
+Summary(pl.UTF-8):   Dokumentacja API biblioteki libnotify
 Group:		Documentation
 Requires:	gtk-doc-common
 
 %description apidocs
 libnotify API documentation.
 
-%description apidocs -l pl
+%description apidocs -l pl.UTF-8
 Dokumentacja API biblioteki libnotify.
 
 %package devel
 Summary:	libnotify header files
-Summary(pl):	Pliki nag≥Ûwkowe biblioteki libnotify
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe biblioteki libnotify
 License:	LGPL v2.1+
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
@@ -56,12 +56,12 @@ Requires:	gtk+2-devel >= 2:2.10.1
 %description devel
 Header files for libnotify-based programs development.
 
-%description devel -l pl
-Pliki nag≥Ûwkowe do tworzenia programÛw opartych o libnotify.
+%description devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe do tworzenia program√≥w opartych o libnotify.
 
 %package static
 Summary:	Static libnotify library
-Summary(pl):	Statyczna biblioteka libnotify
+Summary(pl.UTF-8):   Statyczna biblioteka libnotify
 License:	LGPL v2.1+
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
@@ -69,7 +69,7 @@ Requires:	%{name}-devel = %{version}-%{release}
 %description static
 Static libnotify library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka libnotify.
 
 %prep
