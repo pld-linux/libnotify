@@ -1,5 +1,5 @@
 Summary:	Desktop notifications library
-Summary(pl.UTF-8):   Biblioteka powiadomień dla pulpitu
+Summary(pl.UTF-8):	Biblioteka powiadomień dla pulpitu
 Name:		libnotify
 Version:	0.4.3
 Release:	2
@@ -33,7 +33,7 @@ jakiejś formy informacji bez wchodzenia użytkownikowi w drogę.
 
 %package apidocs
 Summary:	libnotify API documentation
-Summary(pl.UTF-8):   Dokumentacja API biblioteki libnotify
+Summary(pl.UTF-8):	Dokumentacja API biblioteki libnotify
 Group:		Documentation
 Requires:	gtk-doc-common
 
@@ -45,7 +45,7 @@ Dokumentacja API biblioteki libnotify.
 
 %package devel
 Summary:	libnotify header files
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki libnotify
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libnotify
 License:	LGPL v2.1+
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
@@ -61,7 +61,7 @@ Pliki nagłówkowe do tworzenia programów opartych o libnotify.
 
 %package static
 Summary:	Static libnotify library
-Summary(pl.UTF-8):   Statyczna biblioteka libnotify
+Summary(pl.UTF-8):	Statyczna biblioteka libnotify
 License:	LGPL v2.1+
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
