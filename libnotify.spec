@@ -11,7 +11,7 @@ URL:		http://www.galago-project.org/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.60
-BuildRequires:	glib2-devel >= 2.6.0
+BuildRequires:	glib2-devel >= 1:2.6.0
 # GTK+2 >= 2.10 would be better, but Ac doesn't provide it
 BuildRequires:	gtk+2-devel >= 2:2.6.0
 BuildRequires:	gtk-doc >= 1.8
@@ -51,7 +51,7 @@ License:	LGPL v2.1+
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	dbus-glib-devel >= 0.60
-Requires:	glib2-devel >= 2.6.0
+Requires:	glib2-devel >= 1:2.6.0
 Requires:	gtk+2-devel >= 2:2.6.0
 
 %description devel
