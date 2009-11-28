@@ -16,6 +16,7 @@ URL:		http://www.galago-project.org/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.71
+BuildRequires:	docbook-dtd412-xml
 BuildRequires:	glib2-devel >= 1:2.12.1
 BuildRequires:	gtk+2-devel >= 2:2.10.1
 %{?with_apidocs:BuildRequires:	gtk-doc >= 1.7}
@@ -23,7 +24,7 @@ BuildRequires:	gtk-doc-automake
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 Requires:	dbus-glib >= 0.71
-BuildRoot:	%{_tmppath}/%{name}-%{version}-root-%(id -u -n)
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 A library that sends desktop notifications to a notification daemon,
