@@ -7,7 +7,7 @@ Summary:	Desktop notifications library
 Summary(pl.UTF-8):	Biblioteka powiadomień dla pulpitu
 Name:		libnotify
 Version:	0.4.5
-Release:	3
+Release:	4
 License:	LGPL v2.1+ (library), GPL v2+ (tools)
 Group:		Libraries
 Source0:	http://www.galago-project.org/files/releases/source/libnotify/%{name}-%{version}.tar.bz2
@@ -83,6 +83,7 @@ Statyczna biblioteka libnotify.
 %setup -q
 
 %build
+%{__gtkdocize}
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
