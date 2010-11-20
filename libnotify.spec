@@ -7,24 +7,22 @@ Summary:	Desktop notifications library
 Summary(hu.UTF-8):	Desktop értesítő könyvtár
 Summary(pl.UTF-8):	Biblioteka powiadomień dla pulpitu
 Name:		libnotify
-Version:	0.4.5
-Release:	5
+Version:	0.7.0
+Release:	1
 License:	LGPL v2.1+ (library), GPL v2+ (tools)
 Group:		Libraries
-Source0:	http://www.galago-project.org/files/releases/source/libnotify/%{name}-%{version}.tar.bz2
-# Source0-md5:	6a8388f93309dbe336bbe5fc0677de6b
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libnotify/0.7/%{name}-%{version}.tar.bz2
+# Source0-md5:	7217eb79f72a72a4853e1faf76a5162a
 URL:		http://www.galago-project.org/
 BuildRequires:	autoconf >= 2.50
-BuildRequires:	automake
-BuildRequires:	dbus-glib-devel >= 0.71
+BuildRequires:	automake >= 1:1.10
 BuildRequires:	docbook-dtd412-xml
-BuildRequires:	glib2-devel >= 1:2.12.1
-BuildRequires:	gtk+2-devel >= 2:2.10.1
+BuildRequires:	glib2-devel >= 1:2.26.0
+BuildRequires:	gtk+3-devel >= 2.91.0
 %{?with_apidocs:BuildRequires:	gtk-doc >= 1.7}
 BuildRequires:	gtk-doc-automake
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
-Requires:	dbus-glib >= 0.71
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -68,9 +66,8 @@ Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libnotify
 License:	LGPL v2.1+
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	dbus-glib-devel >= 0.71
-Requires:	glib2-devel >= 1:2.12.1
-Requires:	gtk+2-devel >= 2:2.10.1
+Requires:	gdk-pixbuf2-devel
+Requires:	glib2-devel >= 1:2.26.0
 
 %description devel
 Header files for libnotify-based programs development.
@@ -109,6 +106,7 @@ Statyczna biblioteka libnotify.
 %{__autoheader}
 %{__automake}
 %configure \
+	--disable-silent-rules \
 	--%{?with_apidocs:en}%{!?with_apidocs:dis}able-gtk-doc \
 	--with-html-dir=%{_gtkdocdir} \
 	%{!?with_static_libs:--disable-static}
@@ -121,7 +119,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%{!?with_apidocs:rm -rf $RPM_BUILD_ROOT%{_gtkdocdir}/libnotify}
+%{!?with_apidocs:%{__rm} -rf $RPM_BUILD_ROOT%{_gtkdocdir}/libnotify}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -132,9 +130,9 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS
-%attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
-%attr(755,root,root) %ghost %{_libdir}/lib*.so.1
+%attr(755,root,root) %{_bindir}/notify-send
+%attr(755,root,root) %{_libdir}/libnotify.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libnotify.so.4
 
 %if %{with apidocs}
 %files apidocs
@@ -144,13 +142,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
-%{_pkgconfigdir}/*
-%{_includedir}/*
+%attr(755,root,root) %{_libdir}/libnotify.so
+%{_libdir}/libnotify.la
+%{_pkgconfigdir}/libnotify.pc
+%{_includedir}/libnotify
 
 %if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libnotify.a
 %endif
