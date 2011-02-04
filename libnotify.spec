@@ -7,19 +7,20 @@ Summary:	Desktop notifications library
 Summary(hu.UTF-8):	Desktop értesítő könyvtár
 Summary(pl.UTF-8):	Biblioteka powiadomień dla pulpitu
 Name:		libnotify
-Version:	0.7.0
+Version:	0.7.1
 Release:	1
 License:	LGPL v2.1+ (library), GPL v2+ (tools)
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libnotify/0.7/%{name}-%{version}.tar.bz2
-# Source0-md5:	7217eb79f72a72a4853e1faf76a5162a
+# Source0-md5:	c2eb0eb72cdefd7443caa81f8b6fade8
 URL:		http://www.galago-project.org/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.10
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	glib2-devel >= 1:2.26.0
+BuildRequires:	gobject-introspection-devel >= 0.9.12
 BuildRequires:	gtk+3-devel >= 2.91.0
-%{?with_apidocs:BuildRequires:	gtk-doc >= 1.7}
+%{?with_apidocs:BuildRequires:	gtk-doc >= 1.14}
 BuildRequires:	gtk-doc-automake
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
@@ -133,6 +134,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/notify-send
 %attr(755,root,root) %{_libdir}/libnotify.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libnotify.so.4
+%{_libdir}/girepository-1.0/Notify-0.7.typelib
 
 %if %{with apidocs}
 %files apidocs
@@ -146,6 +148,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libnotify.la
 %{_pkgconfigdir}/libnotify.pc
 %{_includedir}/libnotify
+%{_datadir}/gir-1.0/Notify-0.7.gir
 
 %if %{with static_libs}
 %files static
