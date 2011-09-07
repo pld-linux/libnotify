@@ -21,7 +21,7 @@ BuildRequires:	glib2-devel >= 1:2.26.0
 BuildRequires:	gobject-introspection-devel >= 0.9.12
 BuildRequires:	gtk+3-devel >= 3.0.0
 %{?with_apidocs:BuildRequires:	gtk-doc >= 1.14}
-BuildRequires:	gtk-doc-automake
+BuildRequires:	gtk-doc-automake >= 1.14
 BuildRequires:	libtool >= 2:2.2
 BuildRequires:	pkgconfig
 Requires:	glib2 >= 1:2.26.0
@@ -44,22 +44,6 @@ Biblioteka wysyłająca powiadomienia dla pulpitu do demona powiadomień
 zgodnie ze specyfikacją Desktop Notifications. Powiadomienia te mogą
 być używane do informowania użytkownika o zdarzeniu lub wyświetlania
 jakiejś formy informacji bez wchodzenia użytkownikowi w drogę.
-
-%package apidocs
-Summary:	libnotify API documentation
-Summary(hu.UTF-8):	libnotify API dokumentáció
-Summary(pl.UTF-8):	Dokumentacja API biblioteki libnotify
-Group:		Documentation
-Requires:	gtk-doc-common
-
-%description apidocs
-libnotify API documentation.
-
-%description apidocs -l hu.UTF-8
-libnotify API dokumentáció.
-
-%description apidocs -l pl.UTF-8
-Dokumentacja API biblioteki libnotify.
 
 %package devel
 Summary:	libnotify header files
@@ -96,6 +80,22 @@ Libnotify statikus könyvtár.
 
 %description static -l pl.UTF-8
 Statyczna biblioteka libnotify.
+
+%package apidocs
+Summary:	libnotify API documentation
+Summary(hu.UTF-8):	libnotify API dokumentáció
+Summary(pl.UTF-8):	Dokumentacja API biblioteki libnotify
+Group:		Documentation
+Requires:	gtk-doc-common
+
+%description apidocs
+libnotify API documentation.
+
+%description apidocs -l hu.UTF-8
+libnotify API dokumentáció.
+
+%description apidocs -l pl.UTF-8
+Dokumentacja API biblioteki libnotify.
 
 %prep
 %setup -q
@@ -139,12 +139,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %ghost %{_libdir}/libnotify.so.4
 %{_libdir}/girepository-1.0/Notify-0.7.typelib
 
-%if %{with apidocs}
-%files apidocs
-%defattr(644,root,root,755)
-%{_gtkdocdir}/%{name}
-%endif
-
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libnotify.so
@@ -156,4 +150,10 @@ rm -rf $RPM_BUILD_ROOT
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libnotify.a
+%endif
+
+%if %{with apidocs}
+%files apidocs
+%defattr(644,root,root,755)
+%{_gtkdocdir}/%{name}
 %endif
