@@ -2,7 +2,8 @@
 # Conditional build:
 %bcond_without	apidocs		# disable gtk-doc
 %bcond_without	static_libs	# don't build static library
-#
+%bcond_without	tests		# build without tests
+
 Summary:	Desktop notifications library
 Summary(hu.UTF-8):	Desktop értesítő könyvtár
 Summary(pl.UTF-8):	Biblioteka powiadomień dla pulpitu
@@ -20,7 +21,7 @@ BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gdk-pixbuf2-devel
 BuildRequires:	glib2-devel >= 1:2.26.0
 BuildRequires:	gobject-introspection-devel >= 0.9.12
-BuildRequires:	gtk+3-devel >= 3.0.0
+%{?with_tests:BuildRequires:	gtk+3-devel >= 3.0.0}
 %{?with_apidocs:BuildRequires:	gtk-doc >= 1.14}
 BuildRequires:	gtk-doc-automake >= 1.14
 BuildRequires:	libtool >= 2:2.2
@@ -103,6 +104,9 @@ Dokumentacja API biblioteki libnotify.
 %prep
 %setup -q
 
+%{!?with_tests:%{__sed} -i -e '/SUBDIRS/ s/tests//' Makefile.am}
+%{!?with_tests:%{__sed} -i -e '/PKG_CHECK_MODULES(TESTS/ s/^/#/' configure.ac}
+
 %build
 %{__gtkdocize}
 %{__libtoolize}
@@ -117,6 +121,8 @@ Dokumentacja API biblioteki libnotify.
 	%{!?with_static_libs:--disable-static}
 
 %{__make}
+
+%{?with_tests:%{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
