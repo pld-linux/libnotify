@@ -17,6 +17,7 @@ URL:		http://developer.gnome.org/notification-spec/
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.10
 BuildRequires:	docbook-dtd412-xml
+BuildRequires:	gdk-pixbuf2-devel
 BuildRequires:	glib2-devel >= 1:2.26.0
 BuildRequires:	gobject-introspection-devel >= 0.9.12
 BuildRequires:	gtk+3-devel >= 3.0.0
