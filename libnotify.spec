@@ -18,7 +18,7 @@ URL:		http://developer.gnome.org/notification-spec/
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.10
 BuildRequires:	docbook-dtd412-xml
-BuildRequires:	gdk-pixbuf2-devel
+BuildRequires:	gdk-pixbuf2-devel >= 2.0
 BuildRequires:	glib2-devel >= 1:2.26.0
 BuildRequires:	gobject-introspection-devel >= 0.9.12
 %{?with_tests:BuildRequires:	gtk+3-devel >= 3.0.0}
@@ -27,6 +27,7 @@ BuildRequires:	gtk-doc-automake >= 1.14
 BuildRequires:	libtool >= 2:2.2
 BuildRequires:	pkgconfig
 BuildRequires:	tar >= 1:1.22
+BuildRequires:	xmlto
 BuildRequires:	xz
 Requires:	glib2 >= 1:2.26.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -56,7 +57,7 @@ Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libnotify
 License:	LGPL v2.1+
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	gdk-pixbuf2-devel
+Requires:	gdk-pixbuf2-devel >= 2.0
 Requires:	glib2-devel >= 1:2.26.0
 
 %description devel
