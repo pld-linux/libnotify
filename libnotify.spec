@@ -1,31 +1,32 @@
+# TODO: actually run tests (broken after switching to meson)
 #
 # Conditional build:
-%bcond_without	apidocs		# disable gtk-doc
-%bcond_without	static_libs	# don't build static library
-%bcond_without	tests		# build without tests
+%bcond_without	apidocs		# gtk-doc API documentation
+%bcond_without	static_libs	# static library
+%bcond_without	tests		# tests build
 
 Summary:	Desktop notifications library
 Summary(hu.UTF-8):	Desktop értesítő könyvtár
 Summary(pl.UTF-8):	Biblioteka powiadomień dla pulpitu
 Name:		libnotify
-Version:	0.7.7
+Version:	0.7.8
 Release:	1
 License:	LGPL v2.1+ (library), GPL v2+ (tools)
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libnotify/0.7/%{name}-%{version}.tar.xz
-# Source0-md5:	e9d911f6a22435e0b922f2fe71212b59
+# Source0-md5:	babb4b07b5f21bef42a386d3d7019599
 URL:		http://developer.gnome.org/notification-spec/
-BuildRequires:	autoconf >= 2.63
-BuildRequires:	automake >= 1:1.10
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gdk-pixbuf2-devel >= 2.0
 BuildRequires:	glib2-devel >= 1:2.26.0
 BuildRequires:	gobject-introspection-devel >= 0.9.12
 %{?with_tests:BuildRequires:	gtk+3-devel >= 3.0.0}
 %{?with_apidocs:BuildRequires:	gtk-doc >= 1.14}
-BuildRequires:	gtk-doc-automake >= 1.14
-BuildRequires:	libtool >= 2:2.2
+BuildRequires:	meson >= 0.47.0
+BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
+BuildRequires:	rpmbuild(macros) >= 1.736
+BuildRequires:	sed >= 4.0
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xmlto
 BuildRequires:	xz
@@ -108,35 +109,24 @@ Dokumentacja API biblioteki libnotify.
 %prep
 %setup -q
 
-%{!?with_tests:%{__sed} -i -e '/SUBDIRS/ s/tests//' Makefile.am}
-%{!?with_tests:%{__sed} -i -e '/PKG_CHECK_MODULES(TESTS/ s/^/#/' configure.ac}
+%if %{with static_libs}
+%{__sed} -i -e '/libnotify_lib/ s/shared_library/library/' libnotify/meson.build
+%endif
 
 %build
-%{__gtkdocize}
-%{__libtoolize}
-%{__aclocal}
-%{__autoconf}
-%{__autoheader}
-%{__automake}
-%configure \
-	--disable-silent-rules \
-	--%{?with_apidocs:en}%{!?with_apidocs:dis}able-gtk-doc \
-	--with-html-dir=%{_gtkdocdir} \
-	%{!?with_static_libs:--disable-static}
+%meson build \
+	%{!?with_apidocs:-Dgtk_doc=false} \
+	%{!?with_tests:-Dtests=false}
 
-%{__make}
-
-%{?with_tests:%{__make} check}
+%ninja_build -C build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+%ninja_install -C build
 
-%{!?with_apidocs:%{__rm} -rf $RPM_BUILD_ROOT%{_gtkdocdir}/libnotify}
-
-%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
+# packaged as %doc
+%{__rm} -r $RPM_BUILD_ROOT%{_docdir}/libnotify/spec
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -146,7 +136,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS
+%doc AUTHORS ChangeLog NEWS build/docs/notification-spec.html
 %attr(755,root,root) %{_bindir}/notify-send
 %attr(755,root,root) %{_libdir}/libnotify.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libnotify.so.4
@@ -168,5 +158,5 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with apidocs}
 %files apidocs
 %defattr(644,root,root,755)
-%{_gtkdocdir}/%{name}
+%{_gtkdocdir}/libnotify
 %endif
