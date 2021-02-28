@@ -93,9 +93,7 @@ Summary(hu.UTF-8):	libnotify API dokumentáció
 Summary(pl.UTF-8):	Dokumentacja API biblioteki libnotify
 Group:		Documentation
 Requires:	gtk-doc-common
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description apidocs
 libnotify API documentation.
