@@ -17,11 +17,13 @@ Source0:	https://download.gnome.org/sources/libnotify/0.8/%{name}-%{version}.tar
 # Source0-md5:	1495f279b255b4493ac3588559823158
 URL:		http://developer.gnome.org/notification-spec/
 BuildRequires:	docbook-dtd412-xml
+BuildRequires:	docbook-style-xsl-ns
 BuildRequires:	gdk-pixbuf2-devel >= 2.0
 BuildRequires:	glib2-devel >= 1:2.38.0
 BuildRequires:	gobject-introspection-devel >= 0.9.12
 %{?with_tests:BuildRequires:	gtk+3-devel >= 3.0.0}
 %{?with_apidocs:BuildRequires:	gtk-doc >= 1.14}
+BuildRequires:	libxslt-progs
 BuildRequires:	meson >= 0.47.0
 BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
