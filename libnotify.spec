@@ -1,7 +1,7 @@
 # TODO: actually run tests (broken after switching to meson)
 #
 # Conditional build:
-%bcond_without	apidocs		# gtk-doc API documentation
+%bcond_without	apidocs		# gi-docgen API documentation
 %bcond_without	static_libs	# static library
 %bcond_without	tests		# tests build
 
