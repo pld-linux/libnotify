@@ -9,18 +9,18 @@ Summary:	Desktop notifications library
 Summary(hu.UTF-8):	Desktop értesítő könyvtár
 Summary(pl.UTF-8):	Biblioteka powiadomień dla pulpitu
 Name:		libnotify
-Version:	0.8.2
+Version:	0.8.3
 Release:	1
 License:	LGPL v2.1+ (library), GPL v2+ (tools)
 Group:		Libraries
 Source0:	https://download.gnome.org/sources/libnotify/0.8/%{name}-%{version}.tar.xz
-# Source0-md5:	ee2d2934a9dcfd5b1305188201e1cd50
+# Source0-md5:	952e55f45067b6a5b9eab4310c9cd658
 URL:		http://developer.gnome.org/notification-spec/
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	docbook-style-xsl-ns
 BuildRequires:	gdk-pixbuf2-devel >= 2.0
 %{?with_apidocs:BuildRequires:	gi-docgen >= 2021.7}
-BuildRequires:	glib2-devel >= 1:2.38.0
+BuildRequires:	glib2-devel >= 1:2.62.0
 BuildRequires:	gobject-introspection-devel >= 0.9.12
 %{?with_tests:BuildRequires:	gtk+3-devel >= 3.0.0}
 BuildRequires:	libxslt-progs
@@ -33,7 +33,7 @@ BuildRequires:	sed >= 4.0
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xmlto
 BuildRequires:	xz
-Requires:	glib2 >= 1:2.38.0
+Requires:	glib2 >= 1:2.62.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -62,7 +62,7 @@ License:	LGPL v2.1+
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gdk-pixbuf2-devel >= 2.0
-Requires:	glib2-devel >= 1:2.38.0
+Requires:	glib2-devel >= 1:2.62.0
 
 %description devel
 Header files for libnotify-based programs development.
