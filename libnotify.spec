@@ -9,15 +9,15 @@ Summary:	Desktop notifications library
 Summary(hu.UTF-8):	Desktop értesítő könyvtár
 Summary(pl.UTF-8):	Biblioteka powiadomień dla pulpitu
 Name:		libnotify
-Version:	0.8.3
+Version:	0.8.4
 Release:	1
 License:	LGPL v2.1+ (library), GPL v2+ (tools)
 Group:		Libraries
 Source0:	https://download.gnome.org/sources/libnotify/0.8/%{name}-%{version}.tar.xz
-# Source0-md5:	952e55f45067b6a5b9eab4310c9cd658
+# Source0-md5:	00e2b66b100ea57106dee8988c40fe77
 URL:		http://developer.gnome.org/notification-spec/
 BuildRequires:	docbook-dtd412-xml
-BuildRequires:	docbook-style-xsl-ns
+BuildRequires:	docbook-style-xsl-nons
 BuildRequires:	gdk-pixbuf2-devel >= 2.0
 %{?with_apidocs:BuildRequires:	gi-docgen >= 2021.7}
 BuildRequires:	glib2-devel >= 1:2.62.0
