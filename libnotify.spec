@@ -28,7 +28,7 @@ BuildRequires:	meson >= 0.56.0
 BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
 BuildRequires:	rpm-build >= 4.6
-BuildRequires:	rpmbuild(macros) >= 2.029
+BuildRequires:	rpmbuild(macros) >= 2.042
 BuildRequires:	sed >= 4.0
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xmlto
@@ -114,16 +114,16 @@ Dokumentacja API biblioteki libnotify.
 %endif
 
 %build
-%meson build \
+%meson \
 	%{!?with_apidocs:-Dgtk_doc=false} \
 	%{!?with_tests:-Dtests=false}
 
-%ninja_build -C build
+%meson_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%ninja_install -C build
+%meson_install
 
 # packaged as %doc
 %{__rm} -r $RPM_BUILD_ROOT%{_docdir}/libnotify/spec
