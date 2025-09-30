@@ -9,13 +9,13 @@ Summary:	Desktop notifications library
 Summary(hu.UTF-8):	Desktop értesítő könyvtár
 Summary(pl.UTF-8):	Biblioteka powiadomień dla pulpitu
 Name:		libnotify
-Version:	0.8.6
+Version:	0.8.7
 Release:	1
 License:	LGPL v2.1+ (library), GPL v2+ (tools)
 Group:		Libraries
 Source0:	https://download.gnome.org/sources/libnotify/0.8/%{name}-%{version}.tar.xz
-# Source0-md5:	09bce743badbe1c180ce14d92539afb9
-URL:		http://developer.gnome.org/notification-spec/
+# Source0-md5:	7e2e817323809dca7b700409d8e24eb9
+URL:		https://gitlab.gnome.org/GNOME/libnotify
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	docbook-style-xsl-nons
 BuildRequires:	gdk-pixbuf2-devel >= 2.0
@@ -24,7 +24,7 @@ BuildRequires:	glib2-devel >= 1:2.62.0
 BuildRequires:	gobject-introspection-devel >= 0.9.12
 %{?with_tests:BuildRequires:	gtk+3-devel >= 3.0.0}
 BuildRequires:	libxslt-progs
-BuildRequires:	meson >= 0.56.0
+BuildRequires:	meson >= 0.64.0
 BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
 BuildRequires:	rpm-build >= 4.6
@@ -144,13 +144,13 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS NEWS build/docs/notification-spec.html
 %attr(755,root,root) %{_bindir}/notify-send
 %attr(755,root,root) %{_libdir}/libnotify.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libnotify.so.4
+%ghost %{_libdir}/libnotify.so.4
 %{_libdir}/girepository-1.0/Notify-0.7.typelib
 %{_mandir}/man1/notify-send.1*
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libnotify.so
+%{_libdir}/libnotify.so
 %{_pkgconfigdir}/libnotify.pc
 %{_includedir}/libnotify
 %{_datadir}/gir-1.0/Notify-0.7.gir
