@@ -9,12 +9,12 @@ Summary:	Desktop notifications library
 Summary(hu.UTF-8):	Desktop értesítő könyvtár
 Summary(pl.UTF-8):	Biblioteka powiadomień dla pulpitu
 Name:		libnotify
-Version:	0.8.8
+Version:	0.8.9
 Release:	1
 License:	LGPL v2.1+ (library), GPL v2+ (tools)
 Group:		Libraries
 Source0:	https://download.gnome.org/sources/libnotify/0.8/%{name}-%{version}.tar.xz
-# Source0-md5:	35bef24dc1e9a336394556d09345e078
+# Source0-md5:	113412e490d26799863207ad30646bcc
 URL:		https://gitlab.gnome.org/GNOME/libnotify
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	docbook-style-xsl-nons
@@ -33,7 +33,7 @@ BuildRequires:	sed >= 4.0
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xmlto
 BuildRequires:	xz
-Requires:	glib2 >= 1:2.62.0
+Requires:	glib2%{?_isa} >= 1:2.62.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -60,9 +60,9 @@ Summary(hu.UTF-8):	libnotify fejléc fájlok
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libnotify
 License:	LGPL v2.1+
 Group:		Development/Libraries
-Requires:	%{name} = %{version}-%{release}
-Requires:	gdk-pixbuf2-devel >= 2.0
-Requires:	glib2-devel >= 1:2.62.0
+Requires:	%{name}%{?_isa} = %{version}-%{release}
+Requires:	gdk-pixbuf2-devel%{?_isa} >= 2.0
+Requires:	glib2-devel%{?_isa} >= 1:2.62.0
 
 %description devel
 Header files for libnotify-based programs development.
@@ -79,7 +79,7 @@ Summary(hu.UTF-8):	Libnotify statikus könyvtár
 Summary(pl.UTF-8):	Statyczna biblioteka libnotify
 License:	LGPL v2.1+
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}-%{release}
+Requires:	%{name}-devel%{?_isa} = %{version}-%{release}
 
 %description static
 Static libnotify library.
